@@ -1,4 +1,6 @@
 ﻿
+using System.Globalization;
+
 namespace Program
 {
     public class Rectangle
@@ -13,6 +15,42 @@ namespace Program
         {
             length = inputLength;
             width = inputWidth;
+        }
+
+        /*Rectangles can be red or yellow only
+        produces one baby only
+        color is inherited from mother
+        size is inherited from father */
+        public Rectangle MakeMeRectangle(Rectangle father)
+        {
+            int fatherLength = father.GetLength();
+            int fatherWidth = father.GetWidth();
+
+            Rectangle baby = new Rectangle(fatherLength, fatherWidth);
+            baby.SetColor(color);
+            return baby;
+        }
+
+        public int GetLength()
+        {
+            return length;
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
+
+        //getter method
+        public String GetColor()
+        {
+            return color;
+        }
+
+        //setter method
+        public void SetColor(String newColor)
+        {
+            color = newColor;
         }
 
         public Rectangle(int inputLength, int inputWidth, String inputColor)
